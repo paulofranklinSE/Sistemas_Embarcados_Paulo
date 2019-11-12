@@ -1,0 +1,24 @@
+
+Respostas:
+1. (a) FILE *fopen (char *nome_do_arquivo, char *modo) //fopen
+int fclose (FILE *ponteiro_para_arquivo); //fclose
+
+(b) int putc (int ch, FILE *fp);  /fwrite
+(c) int getc (FILE *fp); //fread
+(d) int fseek ( FILE * stream, long int offset, int origin ); 
+(e) #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+
+2. POSIX (um acrônimo para: Portable Operating System Interface, que pode ser traduzido como Interface Portável entre Sistemas Operacionais) é uma família de normas definidas pelo IEEE para a manutenção de compatibilidade entre sistemas operacionais, e designada formalmente por IEEE 1003. POSIX define a interface de programação de aplicações (API), juntamente com shells de linha e comando e interfaces utilitárias, para compatibilidade de software com variantes de Unix e outros sistemas operacionais
+
+3. (a) int open(const char* path, int oflag, ...) //open
+int close(int fildes) //close
+(b)write(int fildes, const void *buf, size_t nbyte); //write
+(c)read(int fildes, void *buf, size_t nbyte); //read
+(d)lseek(int fd, off_t offset, int whence);
+(e)
+#include <stdio.h>	// Para a funcao printf()
+#include <fcntl.h>	// Para a funcao open()
+#include <unistd.h>	// Para a funcao close()
+#include <stdlib.h>	// Para a função exit()
