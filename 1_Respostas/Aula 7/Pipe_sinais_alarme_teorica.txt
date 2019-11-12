@@ -1,0 +1,14 @@
+Respostas:
+
+1. (a) 1, pois o pipe foi criado antes do fork
+(b) 2, pois o pipe foi criado depois do fork, ficando um pipe para cada processo.
+
+2. SIGILL: Instrução ilegal: emitido quando uma instrução ilegal é detectada.
+SIGIOT:Problemas de instrução de E/S: emitido em caso de problemas de hardware.
+SIGEMT: Problemas de instrução no emulador: emitido em caso de erro material dependente da implementação.
+SIGFPE Emitido em caso de erro de cálculo em ponto flutuante, assim como no caso de um número em ponto flutuante em formato ilegal. Erro de programação.
+SIGALRM:Relógio emitido quando o relógio de um processo pára. O relógio é colocado em funcionamento utilizando a primitiva alarm.
+
+3. A precisão é apenas nos segundos, de meio segundo. A imprecisão vem da chamada do programa, 
+pois o programa pode ser chamado em um momento diferente do tempo real. 
+Por essa razão, isso não pode ser usado em sistemas de tempo real.
