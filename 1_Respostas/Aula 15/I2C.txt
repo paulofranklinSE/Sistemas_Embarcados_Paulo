@@ -1,0 +1,15 @@
+1)  Cite as vantagens e desvantagens das comunicação serial I2C.
+	- Vantagens:
+		- Menor quantidade de fios em comparação com SPI, por usar apenas um caminho de dados.
+		- Escalabilidade, visto que o protocolo contempla o uso de múltiplos módulos sem adição de fios.
+		- Maior frequência.
+
+	- Desvantagens:
+		 - Comunicação HALF-DUPLEX,
+		 - Maior quantidade de bits de protocolo são necessários.
+2)  Considere o caso em que a Raspberry Pi deve receber leituras analógico/digitais de um MSP430, e que a comunicação entre os dois é I2C. É tecnicamente possível que o MSP430 mande os resultados da conversão A/D a qualquer hora, ou ele deve aguardar a Raspberry Pi fazer um pedido ao MSP430? Por quê?
+	O MSP430 só poderá enviar os dados coletados quando solicitado pela Raspberry, uma vez que o protocolo I2C é assíncrono e a própria maneira que o protocolo se estabelece só permite que o escravo envie dados quando solicitado.
+
+3)  Se o Raspberry Pi tiver de se comunicar com dois dispositivos via I2C, como executar a comunicação com o segundo dispositivo?
+
+O primeiro byte da mensagem deve conter o endereço do módulo de destino. Esse endereço é normalmente padrão nos módulos comerciais mas também pode ser configurado.
