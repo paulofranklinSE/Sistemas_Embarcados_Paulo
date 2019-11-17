@@ -1,0 +1,17 @@
+1. O que é memória virtual?
+
+2. Qual é a diferença entre o user space e o kernel space?
+
+3. Qual é a diferença de acesso à memória virtual entre o user space e o kernel space?
+
+4. Em termos práticos, por que é feita esta distinção entre user space e kernel space?
+
+5. Qual é a diferença entre Linux e GNU/Linux?
+
+6. O que é um Linux Kernel Module (LKM)? Quais são suas vantagens?
+
+7. O que são device drivers?
+
+Cite uma situação prática em que vale a pena desenvolver um device driver.
+
+O que é a General Public License (GPL)? Quais são suas características?
