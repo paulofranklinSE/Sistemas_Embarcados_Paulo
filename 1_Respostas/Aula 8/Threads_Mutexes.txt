@@ -1,0 +1,38 @@
+1. Quais são as vantagens e desvantagens em utilizar:
+	(a) fork? Vantagens:cada filho tem seu espaço de memória proegido. Desvantagens: a aplicação roda vários programas filho.
+	(b) threads? Vantagens: a comunicação é mais simples por usar memória compartilhada, uma só aplicação pode rodar várias threads, todas as threads compartilham o mesmo espaço de memória. Desvantagens: Risco de corrupção de dados, uma thread pode interferir na execução de outra (propagação de erros).
+
+2. Quantas threads serão criadas após as linhas de código a seguir? Quantas coexistirão? Por quê?
+	(a)  Duas threads serão criadas, executadas simultaneamente, pois os "joins" só foram criados depois de crias as duas threads.
+		void* funcao_thread_1(void *arg);
+		void* funcao_thread_2(void *arg);
+		
+		int main (int argc, char** argv)
+		{
+			pthread_t t1, t2;
+			pthread_create(&t1, NULL, funcao_thread_1, NULL);
+			pthread_create(&t2, NULL, funcao_thread_2, NULL);
+			pthread_join(t1, NULL);
+			pthread_join(t2, NULL);
+			return 0;
+		}
+
+	(b)	Duas threads serão criadas, executadas uma de cada vez, pois foi criada a thread e em seguida foi chamado o "join".
+		void* funcao_thread_1(void *arg);
+		void* funcao_thread_2(void *arg);
+		
+		int main (int argc, char** argv)
+		{
+			pthread_t t1, t2;
+			pthread_create(&t1, NULL, funcao_thread_1, NULL);
+			pthread_join(t1, NULL);
+			pthread_create(&t2, NULL, funcao_thread_2, NULL);
+			pthread_join(t2, NULL);
+			return 0;
+		}
+
+3. Apresente as características e utilidades das seguintes funções:
+	(a) pthread_setcancelstate()  
+O pthread_setcancelstate () define o estado de cancelabilidade da thread chamada para o valor dado no estado.
+	(b) pthread_setcanceltype()
+O pthread_setcanceltype () define o tipo de cancelabilidade do thread chamado para o valor fornecido no tipo.
