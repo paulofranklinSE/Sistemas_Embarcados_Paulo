@@ -1,0 +1,10 @@
+1. Apresente as características e utilidades das seguintes funções:
+	(a) popen() - executa o comando especificado pela string de comando. Cria um pipe entre o programa chamado e o programa executado, e deve retornar um ponteiro para uma stream que pode ser usado para ler ou escrever no pipe.
+	(b) pclose() - deve fechar uma stream que foi aberta para a popen (), espera o comando terminar e retorna o status de finalização do processe que estava sendo executado.
+	(c) fileno() - deve retornar o descritor do arquivo associado com a stream apontada pela outra stream.
+
+2. Quais são as vantagens e desvantagens em utilizar:
+	(a) popen()? Desvantagem: não pode ser usada em programas que tem privilégios de ID.
+	(b) exec()? Vantagem: pode ser usado em programas que tem privilégios de ID.
+
+
