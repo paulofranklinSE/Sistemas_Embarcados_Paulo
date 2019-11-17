@@ -1,0 +1,36 @@
+1. Cite as vantagens e desvantagens das comunicação serial:
+	(a) Assíncrona (UART). 
+Vantagens: melhor para aplicação em sensores, usa menos fios.
+
+
+	(b) SPI.
+Vantagens: Apesar de utilizar dois sinais de comunicação de dados em vez de um, é possível atingir velocidades maiores de comunicação. Isso porque há pouca deformação do sinal, é melhor em aplicações de aúdio e vídeo.
+ 
+Outra característica é que toda troca de dados acontece sempre em ambas as direções. Em outras palavras, cada bit trocado entre o Master e um Slave trás um bit do Slave para o Master. Dessa forma, definimos que a comunicação é sempre full-duplex.
+sempre existem dois transistores definindo o estado de um pino (Push-Pull). Essa característica é uma das grandes diferenças entre outras comunicações seriais como I2C e OneWire, que possuem um mesmo barramento de dados para os sinais de entrada e saída através do esquema de dreno-aberto (Pull-Up).
+
+Desvantagem:
+Requer mais pinos do CI;
+Sinais de out-of-band Chip Select são obrigatórios nos barramentos comuns;
+Sem controle de fluxo de hardware pelo escravo (mas o mestre pode atrasar o clock seguinte para diminuir a taxa de transferência);
+Não há reconhecimento do escravo (o mestre poderia estar transmitindo a lugar nenhum e não saberiamos);
+Suporta apenas um dispositivo mestre;
+Nenhum protocolo de verificação de erros é definido;
+Geralmente propenso a causar picos de ruído em comunicação defeituoso;
+Sem um padrão formal, validar a conformidade não é possível;
+Lida apenas com curtas distâncias em relação ao RS-232, RS-485, ou CAN-BUS;
+Muitas variações existentes, o que torna difícil encontrar ferramentas de desenvolvimento, como adaptadores de host que suportam essas variações;
+ 
+
+2. Considere o caso em que a Raspberry Pi deve receber leituras analógico/digitais de um MSP430, e que a comunicação entre os dois é UART. É tecnicamente possível que o MSP430 mande os resultados da conversão A/D a qualquer hora, ou ele deve aguardar a Raspberry Pi fazer um pedido ao MSP430? Por quê? 
+
+Sim, pois quando o MSP envia um bit, a raspberry já entende que a comuncação deve ser inicada.
+
+3. Considere o caso em que a Raspberry Pi deve receber leituras analógico/digitais de um MSP430, que a comunicação entre os dois seja SPI, e que o MSP430 seja o escravo. É tecnicamente possível que o MSP430 mande os resultados da conversão A/D a qualquer hora, ou ele deve aguardar a Raspberry Pi fazer um pedido ao MSP430? Por quê? 
+
+Não, pois o slave não tem acesso ao clock, logo ele não pode inicar a comunicação.
+
+4. Se o Raspberry Pi tiver de se comunicar com dois dispositivos via UART, como executar a comunicação com o segundo dispositivo?
+
+
+5. Se o Raspberry Pi tiver de se comunicar com dois dispositivos via SPI, como executar a comunicação com o segundo dispositivo?
