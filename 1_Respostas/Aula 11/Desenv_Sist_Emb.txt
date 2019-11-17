@@ -1,0 +1,68 @@
+1. Especifique algumas portas importantes pré-definidas para o protocolo TCP/IP. 
+21	FTP
+23	Telnet
+25	SMTP
+53	Domain Name (Nome do domínio do Sistema)
+63	Whois
+70	Gopher
+79	Finger
+80	HTTP
+110	POP3
+119	NNTP
+
+2. Com relação a endereços IP, responda:
+	(a) Qual é a diferença entre endereços IP externos e locais?
+	O endereço de IP externo serve para identificar um dispositivo conectado à rede mundial de computadores, a Internet. Trata-se de um endereço único porém dinâmico: não existe mais de um computador com o mesmo endereço de IP conectado, mas o IP do seu modem pode ser alterado.
+	O endereço de IP interno é utilizado na identificação de um computador, tablet ou celular ligado à uma rede interna, também conhecida como Intranet. O endereço de IP interno pode ser configurado como fixo ou gerenciado pelo roteador, que evita conflitos (mais de um dispositivo com o mesmo IP)
+	(b) Como endereços IP externos são definidos? Quem os define? 
+	(c) Como endereços IP locais são definidos? Quem os define?
+	(d) O que é o DNS? Para que ele serve? 
+	DNS significa Domain Name System, ou Sistema de Nomes de Domínios. É um computador com uma espécie de banco de dados que relaciona o endereço "nominal" de um site com o endereço real onde está a página na rede, para poder acessá-la.
+	 Serve para examinar e atualizar a respetiva Base de Dados. Resolver nomes de domínios em Endereços IP
+
+3. Com relação à pilha de protocolos TCP/IP, responda:
+	(a) O que são suas camadas? Para que servem? A camada é responsável por controlar a operação da rede de um modo geral
+	(b) Quais são as camadas existentes? Para que servem?
+Camada de Aplicação – Esta camada faz a comunicação entre os aplicativos e o protocolo de transporte. Existem vários protocolos que operam na camada de aplicação. Os mais conhecidos são o HTTP, SMTP, FTP, SNMP, DNS e o Telnet.
+
+Quando um programa cliente de e-mail quer descarregar os e-mails que estão armazenados no servidor de e-mail, ele irá efectuar esse pedido para a camada de aplicação do TCP/IP, onde é atendido pelo protocolo SMTP. Quando você entra num endereço www no seu browser para visualizar uma página da internet, o seu browser irá comunicar com a camada de aplicação do TCP/IP, onde é atendido pelo protocolo HTTP. E assim por diante.
+
+A camada de aplicação comunica-se com a camada de transporte através de uma porta. As portas são numeradas e as aplicações padrão usam sempre uma mesma porta. Por exemplo, o protocolo SMTP utiliza sempre a porta 25, o protocolo HTTP utiliza sempre a porta 80 e o FTP as portas 20 (para a transmissão de dados) e a 21 (para transmissão de informações de controle).
+
+O uso de um número de porta permite ao protocolo de transporte (tipicamente o TCP) saber qual é o tipo de conteúdo do pacote de dados (por exemplo, saber que o dado que ele está a transportar é um e-mail) e no receptor, saber para qual protocolo de aplicação ele deverá entregar o pacote de dados, já que, como estamos a ver, existem inúmeros. Assim ao receber um pacote destinado à porta 25, o protocolo TCP irá entregá-lo ao protocolo que estiver conectado a esta porta, tipicamente o SMTP, que por sua vez entregará o dado à aplicação que o solicitou (o cliente de e-mail).
+
+Camada de Transporte – Esta camada é responsável por captar os dados enviados pela camada de aplicação e transformá-los em pacotes, a serem repassados para a camada de Internet.
+
+No protocolo TCP/IP a camada de transporte utiliza um esquema de multiplexação, onde é possível transmitir simultaneamente dados das mais diferentes aplicações. Na verdade, ocorre o conceito de intercalamento de pacotes; vários programas poderão estar a comunicar com a rede ao mesmo tempo, mas os pacotes gerados serão enviados à rede de forma intercalada, não sendo preciso terminar um tipo de aplicação de rede para então começar outra. Isso é possível graças ao uso do conceito de portas, explicado na camada de aplicação, já que dentro do pacote há a informação da porta de origem e de destino do dado.
+
+Nesta camada operam dois protocolos: o TCP (Transmission Control Protocol) e o UDP (User Datagram Protocol). Ao contrário do TCP, este segundo protocolo não verifica se o dado chegou ou não ao destino. Por esse motivo, o protocolo mais usado na transmissão de dados é o TCP, enquanto que o UDP é tipicamente usado na transmissão de informações de controle.
+
+Na recepção de dados, a camada de transporte capta os pacotes passados pela camada Internet e trata de colocá-los em ordem e verificar se todos chegaram correctamente. Além disso, o protocolo IP, que é o protocolo mais conhecido da camada de Internet, não verifica se o pacote de dados enviado chegou ou não ao destino; é o protocolo de transporte (o TCP) que, ao remontar a ordem dos pacotes recebidos, verifica se está a faltar algum, pedindo, então, uma retransmissão do pacote que não chegou.
+
+Camada de Internet – Há vários protocolos que podem operar nesta camada: IP (Internet Protocol), ICMP (Internet Control Message Protocol), ARP (Address Resolution Protocol) e RARP (Reverse Address Resolution Protocol).
+
+Na transmissão de um dado de programa, o pacote de dados recebidos da camada TCP é dividido em pacotes chamados datagramas. Os datagramas são enviados para a camada de interface com a rede, onde são transmitidos pelo cabeamento da rede através de quadros. Esta camada não verifica se os datagramas chegaram ao destino, isto é feito pelo TCP.
+
+Esta camada é responsável pelo roteamento de pacotes, isto é, adiciona ao datagrama informações sobre o caminho que ele deverá percorrer.
+
+Camada de Interface com a Rede – Esta camada é responsável por enviar o datagrama recebido pela camada de Internet em forma de um quadro através da rede.
+
+Tem como principal função, a interface do modelo TCP/IP com os diversos tipos de redes (X.25, ATM, FDDI, Ethernet, Token Ring, Frame Relay, etc.) e transmitir os datagramas pelo meio físico, tem a função de encontrar o caminho mais curto e confiável.
+	(c) Quais camadas são utilizadas pela biblioteca de sockets? 
+	(d) As portas usadas por servidores na função bind() se referem a qual camada?
+	(e) Os endereços usados por clientes na função connect() se referem a qual camada?
+
+4. Qual é a diferença entre os métodos GET e POST no protocolo HTTP?
+	Visibilidade – A grande diferença entre os métodos GET e POST provavelmente é a visibilidade. Uma requisição GET é enviada como string anexada a URL, enquanto que a requisição POST é encapsulada junto ao corpo da requisição HTTP e não pode ser vista.
+
+Tamanho – Como a requisição GET é feita via URL, obviamente há uma limitação no tamanho da mensagem enviada. A string não pode conter mais que 255 caracteres(embora exista diferenças entre navegadores, mas em geral o limite é 255). Já na requisição POST não há limitações de comprimento da mensagem, já que a mesma é enviada no corpo da requisição HTTP.
+
+Performance – A requisição GET é relativamente mais rápida, já que ela é mais simples. Na requisição POST há uma perda de tempo no encapsulamento da mensagem.
+
+Tipos – Já que GET é enviado via URL, então nós sabemos que ela só transporta textos. A requisição POST não tem restrições, pode transportar tanto texto, como dados binários.
+
+Favoritos/Bookmarks – Por se tratar apenas de uma URL, a requisição GET pode ser armazenada em cache, ou em um sistema de bookmark(favoritos). A mesma coisa não é possível para requisições POST.
+
+Método HTML Padrão – GET é o método HTML padrão. Para submeter um formulário HTML usando POST é preciso especificar no atributo “method” o valor “POST”.
+
+Dados – As requisições GET são limitadas ao padrão ASCII, enquanto que requisições POST também podem usar o atributo “enctype” com o valor “multipart/form-data”, que faz uso do padrão UCS(Universal Multiple-Octet Coded Character Set).
