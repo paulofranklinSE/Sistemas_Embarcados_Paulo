@@ -1,0 +1,48 @@
+//Script para rodar o código em c++ usando o opencv
+
+Abra o terminal e digite os seguintes comandos:
+
+sudo apt-get update && sudo apt-get upgrade -y
+
+#Caso ocorra algum erro na hora de executar o upgrade
+#Execute o comando abaixo:
+
+sudo apt-get upgrade --fix-missing
+
+sudo shutdown -r now
+
+#Agora instale opencv
+
+sudo apt-get install libopencv-dev
+
+sudo apt-get install cmake
+
+#Execução do código
+
+crie um diretório em /home/pi
+
+mkdir codigo
+
+#Copie para dentro do diretorio criado
+#os arquivos existencia_racao_1.cpp e CMakeLists.txt
+
+#Dentro do diretorio codigo, crie uma pasta chamada build
+
+mkdir build
+
+#Dentro da pasta build, digite os seguintes comandos:
+
+cmake ../
+
+make
+
+#Agora renomei o arquivo racao.txt para racao.sh
+
+#E jogue o arquivo racao.sh dentro da pasta build
+
+#Transforme o arquivo racao.sh em executavel
+
+chmod 755 racao.sh
+
+./racao.sh
+ 
