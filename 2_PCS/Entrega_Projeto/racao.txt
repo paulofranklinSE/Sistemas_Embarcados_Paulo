@@ -1,0 +1,10 @@
+#!bin/bash
+
+#Tire uma foto e guarde
+
+fswebcam 320x240 foto_img.jpg
+
+#Passe a imagem pelo algoritmo
+
+./existencia_racao_1 foto_img.jpg
+
