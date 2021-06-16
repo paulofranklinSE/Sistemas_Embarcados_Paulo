@@ -1,1 +1,88 @@
 
+
+function solucao(produtos, valorMaximo, avaliacaoMinima){
+
+    let prod = [];
+    for(let i = 0; i < produtos.length-1; i++){
+        if((produtos[i].valor <= valorMaximo) && (produtos[i].avaliacao >= avaliacaoMinima)){
+           prod.push(produtos[i]);
+        }
+    }
+    console.log(prod);
+  
+}
+
+function processData(input){
+  const {produtos, valorMaximo, avaliacaoMinima} = JSON.parse(input);
+  solucao(produtos, valorMaximo, avaliacaoMinima);
+}
+
+process.stdin.resume();
+process.stdin.setEncoding("ascii");
+_input = "";
+process.stdin.on("data", function (input){
+    _input += input;
+});
+
+process.stdin.on("end", function (){
+   processData(_input);
+});
+
+//Saída do meu algoritmo: [
+  { valor: 100, avaliacao: 5 },
+  { valor: 230, avaliacao: 4 },
+  { valor: 12, avaliacao: 4.5 },
+  { valor: 26, avaliacao: 5 }
+]
+
+//Saída esperada pelo programa: [ { valor: 100, avaliacao: 5 },
+  { valor: 230, avaliacao: 4 },
+  { valor: 12, avaliacao: 4.5 },
+  { valor: 26, avaliacao: 5 } ]
+
+//Entrada: { 
+  "produtos": [
+    { 
+      "valor": 100, 
+      "avaliacao": 5
+    }, 
+    { 
+      "valor": 230, 
+      "avaliacao": 4
+    }, 
+    { 
+      "valor": 12,
+      "avaliacao": 4.5
+    }, 
+    { 
+      "valor": 550, 
+      "avaliacao": 2
+    },
+    { 
+      "valor": 1000, 
+      "avaliacao": 4.8
+    },
+    { 
+      "valor": 26, 
+      "avaliacao": 5
+    },
+    { 
+      "valor": 30, 
+      "avaliacao": 1
+    },
+    { 
+      "valor": 2800, 
+      "avaliacao": 3.6
+    },
+    { 
+      "valor": 340, 
+      "avaliacao": 2.2
+    },
+    { 
+      "valor": 3670, 
+      "avaliacao": 1.8
+    }
+  ], 
+  "valorMaximo": 600, 
+  "avaliacaoMinima": 3.5
+}
